@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tg51-python"
+version = "0.1.0"
+description = "TG-51 reference dosimetry with pylinac"
+requires-python = ">=3.10"
+dependencies = [
+    "PyQt5",
+    "pylinac",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+gui = ["PyQt5"]
+build = ["pyinstaller>=6", "build"]
+
+[project.scripts]
+tg51 = "tg51app.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["tg51app*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

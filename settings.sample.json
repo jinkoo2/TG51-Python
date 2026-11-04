@@ -1,0 +1,51 @@
+{
+  // Shown in the heading bar. Edit it here or from Settings in the app.
+  "Institution": "",
+
+  // Empty family and size 0 use the platform font plus 3 pt, with a 13 pt floor.
+  "Font": {
+    "family": "",
+    "size": 0
+  },
+
+  // People who perform a calibration. The selected user is the TG-51 physicist.
+  "Users": [
+    // { "id": "user1", "name": "Jinkoo Kim", "email": "jinkoo@example.com" }
+  ],
+
+  // Lab chambers. model is a pylinac name such as "30013", or "custom".
+  // NDw is Gy/nC. Custom chambers store photon a, b, c (primes optional) and
+  // electron kq_ecal, a, b, c. Leave a coefficient block null when it does not apply.
+  "IonChambers": [
+    // {
+    //   "id": "ch1",
+    //   "name": "Main Farmer",
+    //   "serial": "1234",
+    //   "model": "30013",
+    //   "n_dw": 5.443,
+    //   "p_elec": 1.0,
+    //   "electrometer": "Keithley 35040",
+    //   "calibration_lab": "ADCL",
+    //   "calibration_date": "2026-01-15",
+    //   "photon_coefficients": null,
+    //   "electron_coefficients": null
+    // }
+  ],
+
+  // Each machine owns its energies. fff is only used for photon beams.
+  "Machines": [
+    // {
+    //   "id": "m1",
+    //   "name": "TrueBeam1",
+    //   "manufacturer": "Varian",
+    //   "model": "TrueBeam",
+    //   "serial": "",
+    //   "comment": "",
+    //   "energies": [
+    //     { "id": "e6", "modality": "photon", "nominal": 6, "fff": false },
+    //     { "id": "e6fff", "modality": "photon", "nominal": 6, "fff": true },
+    //     { "id": "e9", "modality": "electron", "nominal": 9, "fff": false }
+    //   ]
+    // }
+  ]
+}

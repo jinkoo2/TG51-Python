@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+dist/
+build/
+.venv/
+venv/
+.env
+/settings.json
+# Local-only folders such as _ref_docs and _cases. Do not use **/_* :
+# that pattern also matches __init__.py.
+/_*
+**/_*/
