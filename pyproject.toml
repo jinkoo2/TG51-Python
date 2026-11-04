@@ -22,6 +22,7 @@ tg51 = "tg51app.cli:main"
 
 [tool.setuptools.packages.find]
 include = ["tg51app*"]
+namespaces = true
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
