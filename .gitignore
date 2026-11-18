@@ -11,4 +11,4 @@ venv/
 window_state.json
 # Any file or folder whose name starts with _
 **/_*
-!**/__init__.py
+!tg51app/__init__.py
