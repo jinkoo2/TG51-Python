@@ -12,11 +12,48 @@ SAMPLE_NAME = "settings.sample.json"
 ENV_SETTINGS = "TG51_SETTINGS"
 ENV_CASES = "TG51_CASES"
 
+# Checked after converting temperature to °C and pressure to kPa.
+# Voltage limits apply to the magnitude, so -300 and 300 are the same.
+# m_reading applies to every electrometer reading. null removes a limit.
+DEFAULT_VALID_RANGES = {
+    "temperature_c": {"min": 17.0, "max": 27.0},
+    "pressure_kpa": {"min": 91.0, "max": 111.0},
+    "n_dw": {"min": 1.0, "max": 20.0},
+    "p_elec": {"min": 0.98, "max": 1.02},
+    "voltage_reference": {"min": 100.0, "max": 500.0},
+    "voltage_reduced": {"min": 50.0, "max": 400.0},
+    "mu": {"min": 50.0, "max": 500.0},
+    "tissue_correction": {"min": 0.97, "max": 1.03},
+    "m_reading": {"min": 0.01, "max": 100.0},
+    "measured_pdd10": {"min": 62.7, "max": 89.0},
+    "clinical_pdd10": {"min": 50.0, "max": 90.0},
+    "clinical_pdd": {"min": 50.0, "max": 110.0},
+    "i_50": {"min": 1.0, "max": 25.0},
+    "k_ecal": {"min": 0.85, "max": 0.97},
+}
+DEFAULT_HISTORY_WARN_PERCENT = 5.0
+DEFAULT_DOSE_DECIMALS = 2
+
+# Institution reference setup. Photons are measured at this field size and depth.
+DEFAULT_SETUP = {
+    "voltage_reference": 300,
+    "voltage_reduced": 150,
+    "mu": 100,
+    "tissue_correction": 1.0,
+    "field_size": "10x10",
+    "measurement_depth_cm": 10.0,
+}
+
 DEFAULT_SETTINGS = {
     "Institution": "",
     "Font": {"family": "", "size": 0},
+    "PreviousCalibrationWarnPercent": DEFAULT_HISTORY_WARN_PERCENT,
+    "DoseDecimalPlaces": DEFAULT_DOSE_DECIMALS,
+    "Setup": DEFAULT_SETUP,
+    "ValidRanges": DEFAULT_VALID_RANGES,
     "Users": [],
     "IonChambers": [],
+    "Electrometers": [],
     "Machines": [],
 }
 
@@ -158,3 +195,84 @@ def font_settings(data: dict | None = None) -> dict:
 
 def institution_name(data: dict | None = None) -> str:
     return str((data if data is not None else load_settings()).get("Institution") or "").strip()
+
+
+def _bound(value: object) -> float | None:
+    if value is None or value == "":
+        return None
+    return float(value)
+
+
+def valid_ranges(data: dict | None = None) -> dict[str, dict]:
+    """Merge ValidRanges over the defaults. A null entry removes that field's check."""
+    source = data if data is not None else load_settings()
+    merged = {key: dict(bounds) for key, bounds in DEFAULT_VALID_RANGES.items()}
+    cfg = source.get("ValidRanges") if isinstance(source, dict) else None
+    if not isinstance(cfg, dict):
+        return merged
+    for key, value in cfg.items():
+        if value is None:
+            merged.pop(key, None)
+            continue
+        if not isinstance(value, dict):
+            continue
+        current = dict(merged.get(key) or {})
+        for end in ("min", "max"):
+            if end not in value:
+                continue
+            try:
+                current[end] = _bound(value[end])
+            except (TypeError, ValueError):
+                continue
+        merged[key] = current
+    return merged
+
+
+def history_warn_percent(data: dict | None = None) -> float:
+    source = data if data is not None else load_settings()
+    try:
+        value = float(source.get("PreviousCalibrationWarnPercent", DEFAULT_HISTORY_WARN_PERCENT))
+    except (TypeError, ValueError):
+        return DEFAULT_HISTORY_WARN_PERCENT
+    if value < 0:
+        return DEFAULT_HISTORY_WARN_PERCENT
+    return value
+
+
+def dose_decimal_places(value) -> int:
+    """Digits after the decimal for dose shown outside the Calculations panel."""
+    try:
+        places = int(value)
+    except (TypeError, ValueError):
+        return DEFAULT_DOSE_DECIMALS
+    if places < 0 or places > 6:
+        return DEFAULT_DOSE_DECIMALS
+    return places
+
+
+def window_state_path(settings_file: str | Path) -> Path:
+    return Path(settings_file).with_name("window_state.json")
+
+
+def load_window_states(settings_file: str | Path) -> dict:
+    path = window_state_path(settings_file)
+    if not path.is_file():
+        return {}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def load_window_state(settings_file: str | Path, name: str) -> dict | None:
+    item = load_window_states(settings_file).get(name)
+    return item if isinstance(item, dict) else None
+
+
+def save_window_state(settings_file: str | Path, name: str, state: dict) -> None:
+    path = window_state_path(settings_file)
+    states = load_window_states(settings_file)
+    states[name] = state
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(states, indent=2) + "\n", encoding="utf-8")

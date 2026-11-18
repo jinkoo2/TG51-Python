@@ -8,27 +8,93 @@
     "size": 0
   },
 
+  // Used by every calibration. Voltages are V and may be negative. Field size
+  // is cm, such as 10x10. Photon measurements use measurement_depth_cm.
+  // Electron measurements use dref instead of that depth.
+  "Setup": {
+    "voltage_reference": 300,
+    "voltage_reduced": 150,
+    "mu": 100,
+    "tissue_correction": 1.0,
+    "field_size": "10x10",
+    "measurement_depth_cm": 10
+  },
+
+  // Warn when a value is farther than this percent from the mean of earlier
+  // calculated cases for the same energy. 0 turns the warning off.
+  "PreviousCalibrationWarnPercent": 5,
+
+  // Digits after the decimal for dose in cGy on the form and the calibration list.
+  // The Calculations panel keeps the full figures. 0 to 6.
+  "DoseDecimalPlaces": 2,
+
+  // Inclusive limits. Temperature is °C and pressure is kPa after the form's
+  // unit conversion. Voltage limits are V and apply to the magnitude.
+  // n_dw is Gy/nC. m_reading is nC and applies to every electrometer reading.
+  // PDD values are percent. I50 is cm. Set a field to null to skip that check.
+  "ValidRanges": {
+    "temperature_c": { "min": 17, "max": 27 },
+    "pressure_kpa": { "min": 91, "max": 111 },
+    "n_dw": { "min": 1, "max": 20 },
+    "p_elec": { "min": 0.98, "max": 1.02 },
+    "voltage_reference": { "min": 100, "max": 500 },
+    "voltage_reduced": { "min": 50, "max": 400 },
+    "mu": { "min": 50, "max": 500 },
+    "tissue_correction": { "min": 0.97, "max": 1.03 },
+    "m_reading": { "min": 0.01, "max": 100 },
+    "measured_pdd10": { "min": 62.7, "max": 89 },
+    "clinical_pdd10": { "min": 50, "max": 90 },
+    "clinical_pdd": { "min": 50, "max": 110 },
+    "i_50": { "min": 1, "max": 25 },
+    "k_ecal": { "min": 0.85, "max": 0.97 }
+  },
+
   // People who perform a calibration. The selected user is the TG-51 physicist.
   "Users": [
     // { "id": "user1", "name": "Jinkoo Kim", "email": "jinkoo@example.com" }
   ],
 
   // Lab chambers. model is a pylinac name such as "30013", or "custom".
-  // NDw is Gy/nC. Custom chambers store photon a, b, c (primes optional) and
-  // electron kq_ecal, a, b, c. Leave a coefficient block null when it does not apply.
+  // chamber_type is "cylinder" or "parallel_plate". rcav_cm is the cavity
+  // radius in cm and is used only for a cylinder. NDw is Gy/nC.
+  // P_elec is stored on the electrometer. k_ecal is the chamber's electron
+  // quality conversion. A known model fills it from the chamber table, and it
+  // can be overridden here. electrometer_id points
+  // at Electrometers. The electrometer string is the label copied onto a case.
+  // Custom chambers store photon
+  // a, b, c (primes optional) and electron kq_ecal, a, b, c.
+  // Leave a coefficient block null when it does not apply.
   "IonChambers": [
     // {
     //   "id": "ch1",
     //   "name": "Main Farmer",
-    //   "serial": "1234",
-    //   "model": "30013",
-    //   "n_dw": 5.443,
+  //   "serial": "1234",
+  //   "model": "30013",
+  //   "chamber_type": "cylinder",
+  //   "rcav_cm": 0.305,
+  //   "n_dw": 5.443,
+  //   "k_ecal": 0.901,
     //   "p_elec": 1.0,
+    //   "electrometer_id": "em1",
     //   "electrometer": "Keithley 35040",
     //   "calibration_lab": "ADCL",
     //   "calibration_date": "2026-01-15",
     //   "photon_coefficients": null,
     //   "electron_coefficients": null
+    // }
+  ],
+
+  // Electrometers chosen on an ion chamber and overridable on a calibration.
+  "Electrometers": [
+    // {
+    //   "id": "em1",
+    //   "name": "MAX-4000",
+    //   "manufacturer": "Standard Imaging",
+    //   "model": "MAX-4000",
+    //   "serial": "E021075",
+    //   "calibration_lab": "ADCL",
+    //   "calibration_date": "2026-01-15",
+    //   "p_elec": 1.0
     // }
   ],
 

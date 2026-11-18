@@ -9,7 +9,12 @@ def test_project_sample_file_loads():
     data = load_settings(sample)
     assert data["Users"] == []
     assert data["IonChambers"] == []
+    assert data["Electrometers"] == []
     assert data["Machines"] == []
+    assert data["Setup"]["voltage_reference"] == 300
+    assert data["Setup"]["field_size"] == "10x10"
+    assert data["Setup"]["measurement_depth_cm"] == 10
+    assert data["DoseDecimalPlaces"] == 2
     assert font_settings(data) == {"family": "", "size": 0}
 
 
@@ -59,4 +64,15 @@ def test_settings_round_trip(tmp_path):
     assert loaded.institution == "UH"
     assert loaded.users[0].name == "Ada"
     assert loaded.users[0].email == "ada@example.com"
+    assert loaded.voltage_reference == 300
+    assert loaded.mu == 100
+    assert loaded.field_size == "10x10"
+    assert loaded.dose_decimal_places == 2
     assert font_settings(load_settings(path))["size"] == 0
+
+
+def test_dose_decimal_places_default_and_override():
+    assert Catalog.from_settings({}).dose_decimal_places == 2
+    assert Catalog.from_settings({"DoseDecimalPlaces": 3}).dose_decimal_places == 3
+    assert Catalog.from_settings({"DoseDecimalPlaces": 9}).dose_decimal_places == 2
+    assert Catalog.from_settings({"DoseDecimalPlaces": "nope"}).dose_decimal_places == 2

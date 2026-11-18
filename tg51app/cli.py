@@ -16,7 +16,6 @@ def main() -> None:
     app = QApplication(sys.argv)
     app.setFont(themed_font(app.font(), load_settings()))
     window = MainWindow()
-    window.resize(1100, 720)
     window.show()
     sys.exit(app.exec_())
 

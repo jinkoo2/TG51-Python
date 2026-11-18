@@ -8,5 +8,6 @@ build/
 venv/
 .env
 /settings.json
+window_state.json
 # Any file or folder whose name starts with _
 **/_*
