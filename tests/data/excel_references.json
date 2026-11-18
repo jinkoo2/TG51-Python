@@ -1,0 +1,545 @@
+{
+  "pylinac_version": "3.49.0",
+  "cases": [
+    {
+      "name": "Edge 2017 6 MV",
+      "workbook": "Edge/Edge_TG51_2017_Stony Brook.xlsx",
+      "sheet": "6X",
+      "modality": "photon",
+      "nominal": 6.0,
+      "fff": false,
+      "chamber_model": "30013",
+      "k_ecal": 0.897,
+      "measurement": {
+        "measurement_date": "2017-06-15",
+        "temp_value": 21.2,
+        "temp_unit": "C",
+        "press_value": 759.0,
+        "press_unit": "mmHg",
+        "n_dw": 5.433,
+        "p_elec": 0.999,
+        "electrometer": "Standard Imaging MAX-4000(E021075)  (Standard Imaging MAX-4000 (E021075))",
+        "voltage_reference": 300,
+        "voltage_reduced": 150,
+        "m_reference": [
+          12.3,
+          12.3
+        ],
+        "m_opposite": [
+          12.3,
+          12.3
+        ],
+        "m_reduced": [
+          12.27,
+          12.27
+        ],
+        "m_reference_adjusted": [
+          12.3
+        ],
+        "mu": 100,
+        "tissue_correction": 1.0,
+        "measured_pdd10": 66.23164763458401,
+        "clinical_pdd10": 66.4,
+        "lead_foil": "none",
+        "electron_method": "legacy",
+        "clinical_pdd": null,
+        "cone": "",
+        "i_50": null,
+        "k_ecal": null,
+        "m_gradient": []
+      },
+      "excel": {
+        "p_tp": 0.9986039254331938,
+        "p_ion": 1.0024509803921569,
+        "p_pol": 1.0,
+        "m_corrected": 12.300620320855618,
+        "kq": 0.993,
+        "pddx": 66.23164763458401,
+        "dose_mu_10": 0.6636146531178612,
+        "dose_mu_dmax": 0.9994196583100318,
+        "dose_mu_dmax_adjusted": 0.9994196583100318
+      }
+    },
+    {
+      "name": "Edge 2017 10 MV FFF",
+      "workbook": "Edge/Edge_TG51_2017_Stony Brook.xlsx",
+      "sheet": "10XFFF",
+      "modality": "photon",
+      "nominal": 10.0,
+      "fff": true,
+      "chamber_model": "30013",
+      "k_ecal": 0.897,
+      "measurement": {
+        "measurement_date": "2017-06-15",
+        "temp_value": 21.2,
+        "temp_unit": "C",
+        "press_value": 759.0,
+        "press_unit": "mmHg",
+        "n_dw": 5.433,
+        "p_elec": 0.999,
+        "electrometer": "Standard Imaging MAX-4000(E021075)  (Standard Imaging MAX-4000 (E021075))",
+        "voltage_reference": 300,
+        "voltage_reduced": 150,
+        "m_reference": [
+          13.26,
+          13.25
+        ],
+        "m_opposite": [
+          13.24,
+          13.25
+        ],
+        "m_reduced": [
+          13.12,
+          13.12
+        ],
+        "m_reference_adjusted": [
+          13.18,
+          13.17
+        ],
+        "mu": 100,
+        "tissue_correction": 1.0,
+        "measured_pdd10": 70.85806799784133,
+        "clinical_pdd10": 71.05,
+        "lead_foil": "none",
+        "electron_method": "legacy",
+        "clinical_pdd": null,
+        "cone": "",
+        "i_50": null,
+        "k_ecal": null,
+        "m_gradient": []
+      },
+      "excel": {
+        "p_tp": 0.9986039254331938,
+        "p_ion": 1.0103966114747787,
+        "p_pol": 0.999622783855149,
+        "m_corrected": 13.355695732838592,
+        "kq": 0.986,
+        "pddx": 70.85806799784133,
+        "dose_mu_10": 0.715456339876809,
+        "dose_mu_dmax": 1.0069758478209838,
+        "dose_mu_dmax_adjusted": 1.0008982870646144
+      }
+    },
+    {
+      "name": "SIL 2013 15 MV",
+      "workbook": "SIL/SilIX_TG51_2013_Stony Brook.xlsx",
+      "sheet": "15MV",
+      "modality": "photon",
+      "nominal": 15.0,
+      "fff": false,
+      "chamber_model": "30013",
+      "k_ecal": 0.897,
+      "measurement": {
+        "measurement_date": "2013-03-25",
+        "temp_value": 24.1,
+        "temp_unit": "C",
+        "press_value": 746.5,
+        "press_unit": "mmHg",
+        "n_dw": 5.425,
+        "p_elec": 0.999,
+        "electrometer": "Standard Imaging MAX-4000(E021075)  (Standard Imaging MAX-4000 (E021075))",
+        "voltage_reference": 300,
+        "voltage_reduced": 150,
+        "m_reference": [
+          14.09,
+          14.08
+        ],
+        "m_opposite": [
+          14.1,
+          14.09
+        ],
+        "m_reduced": [
+          14.02,
+          14.03
+        ],
+        "m_reference_adjusted": [],
+        "mu": 100,
+        "tissue_correction": 1.0,
+        "measured_pdd10": 78.31937799043061,
+        "clinical_pdd10": 76.2,
+        "lead_foil": "50cm",
+        "electron_method": "legacy",
+        "clinical_pdd": null,
+        "cone": "",
+        "i_50": null,
+        "k_ecal": null,
+        "m_gradient": []
+      },
+      "excel": {
+        "p_tp": 1.0253268641192774,
+        "p_ion": 1.004296455424275,
+        "p_pol": 1.0003549875754347,
+        "m_corrected": 14.494416860397465,
+        "kq": 0.97,
+        "pddx": 78.94429355369037,
+        "dose_mu_10": 0.7627324512362655,
+        "dose_mu_dmax": 1.0009612220948367
+      }
+    },
+    {
+      "name": "SIL 2013 6 MeV",
+      "workbook": "SIL/SilIX_TG51_2013_Stony Brook.xlsx",
+      "sheet": "E6",
+      "modality": "electron",
+      "nominal": 6.0,
+      "fff": false,
+      "chamber_model": "30013",
+      "k_ecal": 0.897,
+      "measurement": {
+        "measurement_date": "2013-03-25",
+        "temp_value": 25.6,
+        "temp_unit": "C",
+        "press_value": 746.5,
+        "press_unit": "mmHg",
+        "n_dw": 5.425,
+        "p_elec": 0.999,
+        "electrometer": "Standard Imaging MAX-4000(E021075)  (Standard Imaging MAX-4000 (E021075))",
+        "voltage_reference": 300,
+        "voltage_reduced": 150,
+        "m_reference": [
+          19.01,
+          19.01
+        ],
+        "m_opposite": [
+          18.95,
+          18.94,
+          18.95
+        ],
+        "m_reduced": [
+          18.78,
+          18.78
+        ],
+        "m_reference_adjusted": [
+          0.0
+        ],
+        "mu": 100,
+        "tissue_correction": 1.0,
+        "measured_pdd10": null,
+        "clinical_pdd10": null,
+        "lead_foil": "none",
+        "electron_method": "legacy",
+        "clinical_pdd": 99.5,
+        "cone": "10x10",
+        "i_50": 2.3979999999999997,
+        "k_ecal": 0.897,
+        "m_gradient": [
+          19.13,
+          19.14
+        ]
+      },
+      "excel": {
+        "p_tp": 1.030500057177397,
+        "p_ion": 1.0123989218328842,
+        "p_pol": 0.9983342100648781,
+        "m_corrected": 19.77986179023421,
+        "r_50": 2.4075419999999994,
+        "dref": 1.3445251999999994,
+        "pq_gr": 1.0065754865860073,
+        "dose_mu_dref": 0.9953535790917933,
+        "dose_mu_dmax": 1.000355355871149
+      }
+    },
+    {
+      "name": "SIL 2013 20 MeV",
+      "workbook": "SIL/SilIX_TG51_2013_Stony Brook.xlsx",
+      "sheet": "E20",
+      "modality": "electron",
+      "nominal": 20.0,
+      "fff": false,
+      "chamber_model": "30013",
+      "k_ecal": 0.897,
+      "measurement": {
+        "measurement_date": "2013-03-25",
+        "temp_value": 24.3,
+        "temp_unit": "C",
+        "press_value": 746.5,
+        "press_unit": "mmHg",
+        "n_dw": 5.425,
+        "p_elec": 0.999,
+        "electrometer": "Standard Imaging MAX-4000(E021075)  (Standard Imaging MAX-4000 (E021075))",
+        "voltage_reference": 300,
+        "voltage_reduced": 150,
+        "m_reference": [
+          19.26,
+          19.27
+        ],
+        "m_opposite": [
+          19.25,
+          19.26
+        ],
+        "m_reduced": [
+          19.07,
+          19.08
+        ],
+        "m_reference_adjusted": [
+          0.0
+        ],
+        "mu": 100,
+        "tissue_correction": 1.0,
+        "measured_pdd10": null,
+        "clinical_pdd10": null,
+        "lead_foil": "none",
+        "electron_method": "legacy",
+        "clinical_pdd": 96.7,
+        "cone": "10x10",
+        "i_50": 8.208,
+        "k_ecal": 0.897,
+        "m_gradient": [
+          19.14,
+          19.15
+        ]
+      },
+      "excel": {
+        "p_tp": 1.0260166231936934,
+        "p_ion": 1.0100608948901244,
+        "p_pol": 0.9997404619776797,
+        "m_corrected": 19.939934418829743,
+        "r_50": 8.386031999999998,
+        "dref": 4.931619199999999,
+        "pq_gr": 0.9937710874643134,
+        "dose_mu_dref": 0.9620850583339626,
+        "dose_mu_dmax": 0.9949173302316057
+      }
+    },
+    {
+      "name": "TrueBeam 2026 6 MV",
+      "workbook": "TrueBeam/TrueBeam_TG51_2026_Stony Brook.xlsx",
+      "sheet": "6MV",
+      "modality": "photon",
+      "nominal": 6.0,
+      "fff": false,
+      "chamber_model": "30013",
+      "k_ecal": 0.897,
+      "measurement": {
+        "measurement_date": "2026-01-17",
+        "temp_value": 20.1,
+        "temp_unit": "C",
+        "press_value": 758.5,
+        "press_unit": "mmHg",
+        "n_dw": 5.41,
+        "p_elec": 1.0,
+        "electrometer": "Standard Imaging MAX-4000(E021075)  (Standard Imaging MAX-4000 (E021075))",
+        "voltage_reference": 300,
+        "voltage_reduced": 150,
+        "m_reference": [
+          12.68,
+          12.69
+        ],
+        "m_opposite": [
+          12.72,
+          12.72
+        ],
+        "m_reduced": [
+          12.65,
+          12.65
+        ],
+        "m_reference_adjusted": [
+          12.47,
+          12.47
+        ],
+        "mu": 100,
+        "tissue_correction": 1.0,
+        "measured_pdd10": 66.15789473684211,
+        "clinical_pdd10": 66.4,
+        "lead_foil": "none",
+        "electron_method": "legacy",
+        "clinical_pdd": null,
+        "cone": "",
+        "i_50": null,
+        "k_ecal": null,
+        "m_gradient": []
+      },
+      "excel": {
+        "p_tp": 0.9955285446064744,
+        "p_ion": 1.0027744748315495,
+        "p_pol": 1.0013795821836817,
+        "m_corrected": 12.680786517952939,
+        "kq": 0.9920526315789474,
+        "pddx": 66.15789473684211,
+        "dose_mu_10": 0.6805784130873692,
+        "dose_mu_dmax": 1.0249674895894114,
+        "dose_mu_dmax_adjusted": 1.0075951592573877
+      }
+    },
+    {
+      "name": "TrueBeam 2026 6 MeV",
+      "workbook": "TrueBeam/TrueBeam_TG51_2026_Stony Brook.xlsx",
+      "sheet": "E6",
+      "modality": "electron",
+      "nominal": 6.0,
+      "fff": false,
+      "chamber_model": "30013",
+      "k_ecal": 0.897,
+      "measurement": {
+        "measurement_date": "2026-01-17",
+        "temp_value": 20.1,
+        "temp_unit": "C",
+        "press_value": 758.5,
+        "press_unit": "mmHg",
+        "n_dw": 5.41,
+        "p_elec": 1.0,
+        "electrometer": "Standard Imaging MAX-4000(E021075)  (Standard Imaging MAX-4000 (E021075))",
+        "voltage_reference": 300,
+        "voltage_reduced": 150,
+        "m_reference": [
+          20.22,
+          20.22
+        ],
+        "m_opposite": [
+          20.29,
+          20.29
+        ],
+        "m_reduced": [
+          19.98,
+          19.98
+        ],
+        "m_reference_adjusted": [
+          20.03,
+          20.03
+        ],
+        "mu": 100,
+        "tissue_correction": 1.0,
+        "measured_pdd10": null,
+        "clinical_pdd10": null,
+        "lead_foil": "none",
+        "electron_method": "legacy",
+        "clinical_pdd": 99.5,
+        "cone": "10x10",
+        "i_50": 2.307645390070922,
+        "k_ecal": 0.897,
+        "m_gradient": [
+          20.2,
+          20.2
+        ]
+      },
+      "excel": {
+        "p_tp": 0.9955285446064744,
+        "p_ion": 1.012158054711246,
+        "p_pol": 1.001730959446093,
+        "m_corrected": 20.409590922323336,
+        "r_50": 2.3145671063829787,
+        "dref": 1.2887402638297871,
+        "pq_gr": 0.9990108803165183,
+        "dose_mu_dref": 1.0174410368380833,
+        "dose_mu_dmax": 1.0225538058674204,
+        "dose_mu_dmax_adjusted": 1.012945238947796
+      }
+    },
+    {
+      "name": "TrueBeam 2026 6 MeV HDTSE",
+      "workbook": "TrueBeam/TrueBeam_TG51_2026_Stony Brook.xlsx",
+      "sheet": "E6_HDTSE",
+      "modality": "electron",
+      "nominal": 6.0,
+      "fff": false,
+      "chamber_model": "30013",
+      "k_ecal": 0.897,
+      "measurement": {
+        "measurement_date": "2026-01-17",
+        "temp_value": 21.3,
+        "temp_unit": "C",
+        "press_value": 760.1,
+        "press_unit": "mmHg",
+        "n_dw": 5.41,
+        "p_elec": 1.0,
+        "electrometer": "Standard Imaging MAX-4000(E021075)  (Standard Imaging MAX-4000 (E021075))",
+        "voltage_reference": 300,
+        "voltage_reduced": 150,
+        "m_reference": [
+          19.83,
+          19.85
+        ],
+        "m_opposite": [
+          19.91,
+          19.89
+        ],
+        "m_reduced": [
+          19.55,
+          19.53
+        ],
+        "m_reference_adjusted": [
+          0.0
+        ],
+        "mu": 100,
+        "tissue_correction": 1.0,
+        "measured_pdd10": null,
+        "clinical_pdd10": null,
+        "lead_foil": "none",
+        "electron_method": "legacy",
+        "clinical_pdd": 99.5,
+        "cone": "36x36",
+        "i_50": 2.338,
+        "k_ecal": 0.897,
+        "m_gradient": [
+          19.85,
+          19.83
+        ]
+      },
+      "excel": {
+        "p_tp": 0.9974974766192868,
+        "p_ion": 1.0155925155925156,
+        "p_pol": 1.0015120967741935,
+        "m_corrected": 20.129322805234352,
+        "r_50": 2.345802,
+        "dref": 1.3074811999999998,
+        "pq_gr": 1.0,
+        "dose_mu_dref": 1.0041500614131613,
+        "dose_mu_dmax": 1.0091960416212677
+      }
+    },
+    {
+      "name": "TrueBeamSH 2025 6 MV",
+      "workbook": "TrueBeamSH/TrueBeamSH_TG51_2025_Southampton.xlsx",
+      "sheet": "6MV",
+      "modality": "photon",
+      "nominal": 6.0,
+      "fff": false,
+      "chamber_model": "30013",
+      "k_ecal": 0.897,
+      "measurement": {
+        "measurement_date": "2025-08-06",
+        "temp_value": 20.7,
+        "temp_unit": "C",
+        "press_value": 771.3,
+        "press_unit": "mmHg",
+        "n_dw": 5.41,
+        "p_elec": 1.0,
+        "electrometer": "Standard Imaging MAX-4000(E021075)  (Standard Imaging MAX-4000 (E021075))",
+        "voltage_reference": 300,
+        "voltage_reduced": 150,
+        "m_reference": [
+          12.66,
+          12.67
+        ],
+        "m_opposite": [
+          12.63
+        ],
+        "m_reduced": [
+          12.64
+        ],
+        "m_reference_adjusted": [],
+        "mu": 100,
+        "tissue_correction": 1.0,
+        "measured_pdd10": 66.24405705229793,
+        "clinical_pdd10": 66.4,
+        "lead_foil": "none",
+        "electron_method": "legacy",
+        "clinical_pdd": null,
+        "cone": "",
+        "i_50": null,
+        "k_ecal": null,
+        "m_gradient": []
+      },
+      "excel": {
+        "p_tp": 0.9810101342294376,
+        "p_ion": 1.0019817677368212,
+        "p_pol": 0.9986182392420057,
+        "m_corrected": 12.431914110385138,
+        "kq": 0.9919449286846276,
+        "pddx": 66.24405705229793,
+        "dose_mu_10": 0.6671489818200916,
+        "dose_mu_dmax": 1.0047424425001379
+      }
+    }
+  ]
+}
